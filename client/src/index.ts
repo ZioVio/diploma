@@ -2,7 +2,8 @@ import { SharedType } from 'shared/types';
 
 const val: SharedType = {
   key: 'key',
-  value: 123,
+  value: 2131,
 };
-
-console.log(val);
+export const fun = () => {
+  console.log(val);
+};
