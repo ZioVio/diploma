@@ -1,0 +1,25 @@
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "lib": ["es6", "es2020.string"],
+    "noImplicitAny": true,
+    "allowJs": false,
+    "removeComments": true,
+    "preserveConstEnums": true,
+    "target": "esnext",
+    "esModuleInterop": true,
+    "isolatedModules": true,
+    "strictNullChecks": true,
+    "rootDir": "."
+  },
+  "references": [
+    {
+      "path": "./shared"
+    },
+    {
+      "path": "./server"
+    }
+  ],
+  "exclude": ["node_modules", "**/node_modules"],
+  "files": []
+}
