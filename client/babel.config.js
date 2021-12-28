@@ -1,5 +1,16 @@
 module.exports = {
-  presets: ['module:metro-react-native-babel-preset'],
+  presets: [
+    'module:metro-react-native-babel-preset',
+    '@babel/preset-typescript',
+    [
+      '@babel/preset-env',
+      {
+        targets: {
+          node: 'current',
+        },
+      },
+    ],
+  ],
   plugins: [
     [
       'module-resolver',
@@ -7,6 +18,8 @@ module.exports = {
         root: ['.'],
         alias: {
           src: './src',
+          pages: './src/pages',
+          utils: './src/utils',
         },
       },
     ],
