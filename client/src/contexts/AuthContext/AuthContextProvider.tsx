@@ -14,8 +14,8 @@ export const AuthContextProvider: React.FC = ({ children }) => {
 
   const authContextValue = useMemo<AuthContextType>(
     () => ({
-      setUser,
       ...authState,
+      setUser,
     }),
     [authState, setUser],
   );

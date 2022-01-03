@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "137618712362",
+    "project_id": "docpp-5f4f5",
+    "storage_bucket": "docpp-5f4f5.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:137618712362:android:0d0783996431c0cc522053",
+        "android_client_info": {
+          "package_name": "com.docpp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "137618712362-ajnqgsauc1bt04ghbel6cpci7csepect.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.docpp",
+            "certificate_hash": "5e8f16062ea3cd2c4a0d547876baa6f38cabf625"
+          }
+        },
+        {
+          "client_id": "137618712362-lqem7jofehubnb40unoalva0mj4mjrai.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBnwoHvFkiDDUZL7QaUfq2SeZ-I6_DMvLQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "137618712362-lqem7jofehubnb40unoalva0mj4mjrai.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
