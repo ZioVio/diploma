@@ -4,5 +4,4 @@ export type User = {
   id: string;
   name: string | null;
   photoUrl: string | null;
-  // todo add anything else
 };

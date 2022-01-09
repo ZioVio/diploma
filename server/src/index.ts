@@ -6,20 +6,17 @@ import cors from 'cors';
 
 import { PORT } from './config';
 import { connect } from './db/connect';
+import { router } from './routes';
 
 const app = express();
 
 app.use(cors());
 app.use(morgan('dev'));
 
+app.use('/api', router);
+
 app.listen(PORT, () => {
   console.log(`App started on port ${PORT}`);
-});
-
-app.use('*', (req, res) => {
-  res.json({
-    yes: 'YES',
-  });
 });
 
 console.log('Connecting to db...');
