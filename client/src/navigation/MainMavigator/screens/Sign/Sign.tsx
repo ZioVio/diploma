@@ -10,6 +10,7 @@ export const Sign: React.FC<SignProps> = ({ onError, onSigned }) => {
     <ScrollLayout.Container>
       <ScrollLayout.Content>
         <Paragraph>Sign screen</Paragraph>
+        <Paragraph>{document?.name}</Paragraph>
         <Button onPress={pick}> pick</Button>
       </ScrollLayout.Content>
       <ScrollLayout.Bottom></ScrollLayout.Bottom>

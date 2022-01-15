@@ -1,7 +1,10 @@
 import { useCallback, useState } from 'react';
 import DocumentPicker from 'react-native-document-picker';
+import RNFetchBlob from 'react-native-fetch-blob';
+import getPath from '@flyerhq/react-native-android-uri-path';
 import { Document } from 'src/types';
 import { UsePickDocumentHook } from './usePickDocument.types';
+import { requestPermissions } from './usePickDocument.utils';
 
 export const usePickDocument: UsePickDocumentHook = () => {
   const [loading, setLoading] = useState<boolean>(false);
@@ -12,11 +15,25 @@ export const usePickDocument: UsePickDocumentHook = () => {
     setLoading(true);
     setReady(false);
     try {
-      const doc = await DocumentPicker.pickSingle({
+      // todo extract it to somewhere
+      const pickedDoc = await DocumentPicker.pickSingle({
         allowMultiSelection: false,
         type: [DocumentPicker.types.pdf],
       });
-      console.log('file:', doc.uri);
+      const rawPart = pickedDoc.uri.split('raw%3A')[1];
+      const filePath = getPath(
+        rawPart ? rawPart.replace(/\%2F/gm, '/') : pickedDoc.uri,
+      );
+      const permissionsGranted = await requestPermissions();
+      if (!permissionsGranted) {
+        throw new Error('PERMISSIONS NOT GRANTED');
+      }
+      const file = await RNFetchBlob.fs.readFile(filePath, 'base64');
+      console.log('file:', file);
+      //
+      setDocument({
+        name: pickedDoc.name,
+      });
       setReady(true);
     } catch (err) {
       console.log(err);
