@@ -1,7 +1,10 @@
 import { StyleSheet } from 'react-native';
 
 export const styles = StyleSheet.create({
-  contentContainer: {
-    padding: 16,
+  button: {
+    paddingHorizontal: 4,
+  },
+  label: {
+    paddingVertical: 24,
   },
 });

@@ -3,8 +3,9 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { ScreenHeader } from 'src/components';
 import { useNavigation } from '@react-navigation/native';
 
-import { DOCUMENTS, SIGN, VERIFY } from './MainNavigator.consts';
+import { DOCUMENTS, PDF_ROUTE, SIGN, VERIFY } from './MainNavigator.consts';
 import { MyDocuments, Sign } from './screens';
+import { PDF } from './screens/PDF';
 
 const MainStack = createNativeStackNavigator();
 
@@ -27,28 +28,47 @@ export const MainNavigator: React.FC = () => {
         onSigned={() => navigation.navigate(DOCUMENTS as never)}
         // todo add error toast
         onError={console.error}
+        onViewDocument={document =>
+          navigation.navigate(
+            PDF_ROUTE as never,
+            {
+              document,
+            } as never,
+          )
+        }
       />
     ),
     [navigation],
   );
+
   return (
     <MainStack.Navigator>
-      <MainStack.Screen
-        name={DOCUMENTS}
-        component={MyDocumentsScreen}
-        options={{
+      <MainStack.Group
+        screenOptions={{
           header: ScreenHeader,
-          title: 'My documents',
-        }}
-      />
-      <MainStack.Screen
-        name={SIGN}
-        component={SignScreen}
-        options={{
-          header: ScreenHeader,
-          title: 'Sign',
-        }}
-      />
+        }}>
+        <MainStack.Screen
+          name={DOCUMENTS}
+          component={MyDocumentsScreen}
+          options={{
+            title: 'My documents',
+          }}
+        />
+        <MainStack.Screen
+          name={SIGN}
+          component={SignScreen}
+          options={{
+            title: 'Sign',
+          }}
+        />
+        <MainStack.Screen
+          name={PDF_ROUTE}
+          component={PDF}
+          options={{
+            title: 'Document to sign',
+          }}
+        />
+      </MainStack.Group>
     </MainStack.Navigator>
   );
 };

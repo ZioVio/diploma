@@ -1,4 +1,4 @@
 export type Document = {
   name: string;
-  // todo add data;
+  base64: string;
 };

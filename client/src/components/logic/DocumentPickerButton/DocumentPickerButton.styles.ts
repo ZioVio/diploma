@@ -1,7 +1,10 @@
 import { StyleSheet } from 'react-native';
 
 export const styles = StyleSheet.create({
-  contentContainer: {
-    padding: 16,
+  container: {
+    flexDirection: 'row',
+  },
+  pickButton: {
+    flex: 1,
   },
 });

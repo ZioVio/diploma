@@ -1,7 +1,7 @@
 import React from 'react';
 import { Button, Divider, Paragraph } from 'react-native-paper';
-import { ScrollLayout } from 'src/components/Layout';
-import { SIGN_ICON, VERIFY_ICON } from 'src/constants/style';
+import { ScrollLayout } from 'src/components/layout';
+import { SIGN_ICON, VERIFY_ICON } from 'src/constants/icons';
 import { styles } from './MyDocuments.styles';
 import { MyDocumentsProps } from './MyDocuments.types';
 

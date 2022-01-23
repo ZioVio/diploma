@@ -29,10 +29,9 @@ export const usePickDocument: UsePickDocumentHook = () => {
         throw new Error('PERMISSIONS NOT GRANTED');
       }
       const file = await RNFetchBlob.fs.readFile(filePath, 'base64');
-      console.log('file:', file);
-      //
       setDocument({
         name: pickedDoc.name,
+        base64: file,
       });
       setReady(true);
     } catch (err) {
