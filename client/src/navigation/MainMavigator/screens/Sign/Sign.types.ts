@@ -4,4 +4,5 @@ export type SignProps = {
   onSigned: () => void;
   onError: (message: string) => void;
   onViewDocument: (doc: Document) => void;
+  onConnectToAnotherSign: () => void;
 };

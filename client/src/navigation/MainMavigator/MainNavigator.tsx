@@ -3,9 +3,16 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { ScreenHeader } from 'src/components';
 import { useNavigation } from '@react-navigation/native';
 
-import { DOCUMENTS, PDF_ROUTE, SIGN, VERIFY } from './MainNavigator.consts';
+import {
+  DOCUMENTS,
+  PDF_ROUTE,
+  SCAN_ROUTE,
+  SIGN,
+  VERIFY,
+} from './MainNavigator.consts';
 import { MyDocuments, Sign } from './screens';
 import { PDF } from './screens/PDF';
+import { Scan } from './screens/Scan';
 
 const MainStack = createNativeStackNavigator();
 
@@ -36,10 +43,23 @@ export const MainNavigator: React.FC = () => {
             } as never,
           )
         }
+        onConnectToAnotherSign={() => {
+          navigation.navigate(SCAN_ROUTE as never);
+        }}
       />
     ),
     [navigation],
   );
+
+  const ScanScreen = useCallback(() => {
+    return (
+      <Scan
+        onScanned={text => {
+          console.log('onScanned CB', text);
+        }}
+      />
+    );
+  }, []);
 
   return (
     <MainStack.Navigator>
@@ -66,6 +86,13 @@ export const MainNavigator: React.FC = () => {
           component={PDF}
           options={{
             title: 'Document to sign',
+          }}
+        />
+        <MainStack.Screen
+          name={SCAN_ROUTE}
+          component={ScanScreen}
+          options={{
+            title: 'Scan to connect',
           }}
         />
       </MainStack.Group>
