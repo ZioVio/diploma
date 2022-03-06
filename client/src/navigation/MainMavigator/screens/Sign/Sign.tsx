@@ -1,4 +1,5 @@
 import React from 'react';
+import QRCode from 'react-native-qrcode-svg';
 import { DocumentPickerButton } from 'src/components';
 import { ScrollLayout } from 'src/components/layout';
 import { BigButton } from 'src/components/UI';
@@ -22,6 +23,8 @@ export const Sign: React.FC<SignProps> = ({
           style={styles.connectContainer}>
           Connect to another sign
         </BigButton>
+        {/* todo move this to the place it has to be in and implement needed logic */}
+        <QRCode value="some another string to scan" />
       </ScrollLayout.Content>
       <ScrollLayout.Bottom></ScrollLayout.Bottom>
     </ScrollLayout.Container>

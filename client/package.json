@@ -33,8 +33,10 @@
     "react-native-pdf": "^6.4.0",
     "react-native-permissions": "^3.2.0",
     "react-native-qrcode-scanner": "^1.5.5",
+    "react-native-qrcode-svg": "^6.1.2",
     "react-native-safe-area-context": "^3.3.2",
     "react-native-screens": "^3.10.1",
+    "react-native-svg": "^12.3.0",
     "react-native-vector-icons": "^9.0.0"
   },
   "devDependencies": {
